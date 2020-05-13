@@ -1,0 +1,36 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1"
+    },
+    "exported_at": "2020-05-13T12:46:07+02:00",
+    "name": "Generic EXE EGG",
+    "author": "maxime4570@gmail.com",
+    "description": "Generic EXE EGG\r\nAuthor Maxime_48",
+    "image": "quay.io\/parkervcp\/pterodactyl-images:debian_wine-4",
+    "startup": "wine64 .\/{{EXE}}",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"wine: configuration in\",\r\n    \"userInteraction\": []\r\n}",
+        "logs": "{\r\n    \"custom\": false,\r\n    \"location\": \"Logs\/\"\r\n}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n# Generic Exe: Installation Script\r\n#\r\n# Server Files: \/mnt\/server\r\napt -y update\r\napt -y --no-install-recommends install curl lib32gcc1 ca-certificates",
+            "container": "ubuntu:latest",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": [
+        {
+            "name": "exe file name",
+            "description": "exe file name",
+            "env_variable": "EXE",
+            "default_value": "main.exe",
+            "user_viewable": 1,
+            "user_editable": 1,
+            "rules": "nullable"
+        }
+    ]
+}
